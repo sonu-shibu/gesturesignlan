@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ASL Detection - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Lottie Animation -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+        /* Hover Animation for Gesture Image */
+        .hero-image img {
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Hover Animation for Feature Images */
+        .feature-card img {
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s;
+        }
+
+        .feature-card img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 200, 255, 0.3);
+        }
+
+        /* ASL Learning Section */
+        .learn-asl {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 200, 255, 0.3);
+        }
+
+        .learn-asl h2 {
+            font-size: 28px;
+            color: #00c8ff;
+        }
+
+        .learn-asl p {
+            font-size: 18px;
+            margin: 10px 0 20px;
+        }
+
+        .btn-learn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 18px;
+            color: white;
+            background: #0077ff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-learn:hover {
+            background: #00c8ff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <dotlottie-player 
+            src="https://lottie.host/e2aa8b48-ee5d-44be-b5c2-2fead41259aa/BnbmDuLMXC.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 250px; height: 250px"
+            loop
+            autoplay>
+        </dotlottie-player>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">ASL Detector</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="{% url 'detection' %}" class="nav-link">Start Detection</a></li>
+                <li><a href="" class="nav-link">Gesture</a></li>
+                <li><a href="" class="nav-link">Text to Speech</a></li>
+                <li><a href="" class="nav-link">Quiz</a></li>
+                <li><a href="" class="nav-link">Quick Phrases</a></li>
+                <li><a href="" class="nav-link">Custom Phrases</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Real-time ASL & Gesture Detection</h1>
+                <p>Experience AI-powered sign language recognition and gesture detection.</p>
+                <a href="{% url 'detection' %}" class="btn btn-primary">ASL Detection</a>
+                <a href="" class="btn btn-primary">Gesture Detection</a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'images/gesture.png' %}" alt="Gesture Illustration">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <h2>About ASL & Gesture Detection</h2>
+            <p>Our AI-powered system recognizes sign language and gestures in real-time, bridging the gap between the hearing and non-hearing communities.</p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Why Choose Our App?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="{% static 'images/real-time.png' %}" alt="Real-time">
+                    <h3>Real-time Detection</h3>
+                    <p>Instantly detect ASL signs and gestures with high accuracy.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="{% static 'images/user-friendly.png' %}" alt="User-Friendly">
+                    <h3>User-Friendly</h3>
+                    <p>Designed for everyone, with a sleek and easy-to-use interface.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="{% static 'images/ai-powered.png' %}" alt="AI-Powered">
+                    <h3>AI-Powered</h3>
+                    <p>Advanced deep learning models provide highly accurate recognition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learn ASL Section -->
+        <section class="learn-asl">
+            <h2>Want to Learn ASL?</h2>
+            <p>Improve your communication skills by learning American Sign Language today.</p>
+            <a href="{% url 'learn_asl' %}" class="btn-learn">Start Learning</a>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <h2>Ready to Try?</h2>
+            <a href="{% url 'detection' %}" class="btn btn-primary">Start Detection Now</a>
+        </section>
+
+    </div>
+
+    <script src="{% static 'js/animation.js' %}"></script>
+</body>
+</html>
